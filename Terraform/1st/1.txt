@@ -1,0 +1,45 @@
+Terraform used to provision or setting up our infra
+like automating all manual tasks of configuration/setting up servers, vms, overall infra
+No need of console -> just simple instruction using tf file
+
+File extension: .tf
+
+Terraform is written in Go language
+
+Terraform is written by Hashicorp
+
+Basic Syntax : ```
+provider "aws"{
+
+}
+
+resource "aws_instance" {
+
+}
+```
+
+Commands:
+terraform init: preparing local env to setup cloud infra
+terraform plan: to check what changes will be done; what resources are going to be added, update, delete
+terraform apply: to apply changes/ run our resources
+terraform destroy: to destroy the infra
+
+terraform init:
+- terraform repo will be made -> in it will download the required plugins/packages respective to cloud provider
+- it will create a .terraform folder in the current directory
+- it will create a .terraform.lock.hcl file in the current directory
+- it will create a .terraform.tfstate file in the current directory
+
+terraform plan:  (just like git status)
+- it will show the changes that will be done
+- it will not apply the changes
+
+terraform apply:
+- it will apply the changes
+- it will create a .terraform.tfstate file in the current directory
+
+terraform destroy:
+- it will destroy the infra
+- it will delete the .terraform.tfstate file in the current directory
+
+
