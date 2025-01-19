@@ -1,0 +1,61 @@
+provider "aws" { 
+    region  = "us-west-1"
+    access_key = ""
+    secret_key = ""
+}
+
+resource "aws_instance" "ec2_example" { 
+    ami = "ami-07d2649d67dbe8900" // image of os
+    instance_type = var.instance_type   // CPU
+    count = var.instance_count
+    associate_public_ip_address = var.enable_public_ip
+    tags = {
+        Name = "terraform-ec2"
+    }    
+}
+
+#resource "aws_instance" "ec2_example" { 
+#   ami = "ami-07d2649d67dbe8900" // image of os
+#   instance_type = var.instance_type   // CPU
+#  tags = var.project_env
+#}
+
+#variable "project_env" {
+#    description = "Project environment"
+#    type = map(string)   #dictionary type , key = project, value = env 
+#    default = {
+ #       project = "project-alpha",
+ #       environment = "dev"
+ #   }
+#}
+
+
+resource "aws_iam_user" "user" {
+  count = length(var.users)
+  name = var.users[count.index]     // index se element uthayega
+}
+
+variable "users" {
+    description = "List of users"
+    type = list(string)    // list
+    default = ["user1", "user2"]
+}
+
+variable "instance_type" {
+  description = "EC2 instance type"
+  type = string
+  default = "t2.micro"
+
+}
+ 
+variable "instance_count" {
+  description = "Number of EC2 instances"
+  type = number
+  default = 1
+}
+
+variable "enable_public_ip" {
+ description = "Enable public IP address"
+ type = bool
+ default = true
+}

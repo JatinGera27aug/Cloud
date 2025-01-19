@@ -2,3 +2,12 @@ variable can be used in main.tf to let us name the instance, or
 change ami , or the architecture and whatever
 
 - so that's why terraform variables are needed
+
+
+Declare variable using: instance_type = var.var_name
+
+variable "var_name" {
+    description = "The type of EC2 instance to launch"  // meaning
+    type = string
+    default = "t2.micro"   // default value
+}
