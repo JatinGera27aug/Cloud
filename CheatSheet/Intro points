@@ -1,0 +1,14 @@
+We implemented a smart notification system for mentors. When students upload achievements as images to S3, a Lambda function is triggered. It counts new uploads and notifies mentors after a batch of 10, ensuring they aren’t spammed by individual uploads. We used Terraform to manage the entire setup, CloudWatch for logs, and optionally SNS for email notifications. This showcases real-time event-driven architecture with AWS serverless.
+
+
+
+ 2. Handling EKS Mention in Resume
+Since you only did a college demo project on EKS, here's how you frame it smartly in your intro:
+
+“I got introduced to EKS while working on a project under the NBA credential demo initiative where we had to understand the deployment model of Kubernetes on AWS. I explored the basic architecture and tried deploying sample applications using EKS dashboard and eksctl.”
+
+Even if they probe, you can say:
+
+“I didn’t go too deep but explored the cluster provisioning process and node groups via AWS Console.”
+
+“I’m currently brushing up on K8s practically using Minikube to bridge that gap.”
